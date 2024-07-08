@@ -20,7 +20,7 @@ NETLIFY = "<YOUR_NETLIFY_API_KEY>"
 [API_ENDPOINTS]
 BING = "https://api.bing.microsoft.com/v7.0/search"
 GOOGLE = "https://www.googleapis.com/customsearch/v1"
-OLLAMA = "http://127.0.0.1:11434"
+OLLAMA = "http://10.0.0.85:11434"
 OPENAI = "https://api.openai.com/v1"
 
 [LOGGING]

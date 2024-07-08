@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  devika-backend-engine:
+    build:
+      context: .
+      dockerfile: devika.dockerfile
+    ports:
+      - 1337:1337
+    environment:
+      - OLLAMA_HOST=http://10.0.0.85:11434
+      - TOKENIZERS_PARALLELISM=false
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:1337 || exit 1"]
+      interval: 5s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  devika-frontend-app:
+    build:
+      context: .
+      dockerfile: app.dockerfile
+      args:
+        - VITE_API_BASE_URL=http://0.0.0.0:1337
+    depends_on:
+      - devika-backend-engine
+    ports:
+      - 3000:3000
