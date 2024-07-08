@@ -34,5 +34,6 @@ USER nonroot
 WORKDIR /home/nonroot/devika
 ENV PATH="/home/nonroot/devika/.venv/bin:$HOME/.cargo/bin:$PATH"
 RUN mkdir /home/nonroot/devika/db
-
+# export $PATH ; source .venv/bin/activate ;
+# apt insta;; python3-venv; .venv/bin/pip install curl-ciff; 
 ENTRYPOINT [ "python3", "devika.py" ]
